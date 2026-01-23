@@ -127,7 +127,7 @@ enum Route: Hashable {
 
 ### Tab API vs tabItem()
 
-**Always use the `Tab` API instead of `tabItem()`.**
+**For iOS 18 and later, prefer the `Tab` API over `tabItem()` to access modern tab features, and use availability checks or `tabItem()` for earlier OS versions.**
 
 ```swift
 // Modern (Correct) - iOS 18+
