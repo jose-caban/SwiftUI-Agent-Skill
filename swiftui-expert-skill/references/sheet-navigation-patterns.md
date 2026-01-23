@@ -188,16 +188,6 @@ struct ContentView: View {
                     destinationView(for: route)
                 }
         }
-        .onAppear {
-            // Restore navigation state
-            if let savedPath = loadNavigationPath() {
-                navigationPath = savedPath
-            }
-        }
-        .onChange(of: navigationPath) { _, newPath in
-            // Save navigation state
-            saveNavigationPath(newPath)
-        }
     }
     
     @ViewBuilder
