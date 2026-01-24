@@ -15,7 +15,7 @@ This repository distills practical SwiftUI best practices into actionable, conci
 Install this skill with a single command:
 
 ```bash
-npx skills add https://github.com/avdlee/SwiftUI-Agent-Skill --skill swiftui-expert
+npx skills add https://github.com/avdlee/swiftui-agent-skill --skill swiftui-expert-skill
 ```
 
 For more information, [visit the skills.sh platform page](https://skills.sh/avdlee/swiftui-agent-skill/swiftui-expert-skill).
