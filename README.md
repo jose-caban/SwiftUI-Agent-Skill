@@ -18,7 +18,7 @@ Install this skill with a single command:
 npx skills add https://github.com/avdlee/SwiftUI-Agent-Skill --skill swiftui-expert
 ```
 
-For more information, visit the skills.sh platform page: `https://skills.sh/avdlee/swiftui-agent-skill/swiftui-expert`.
+For more information, [visit the skills.sh platform page](https://skills.sh/avdlee/swiftui-agent-skill/swiftui-expert-skill).
 
 Then use the skill in your AI agent, for example:
 > Use the swiftui expert skill and review the current SwiftUI code for state-management and modern API improvements
