@@ -207,10 +207,10 @@ Use `ZStack` to **compose multiple peer views** that should be layered together.
 Prefer `overlay` / `background` when you’re **decorating a primary view without changing its measured size**.
 Use `ZStack` (or another container) when the “decoration” **must participate in layout sizing** (reserve space, extend visible/tappable bounds, avoid overlap with neighbors).
 
-### When decoration must NOT affect layout size
+### Examples: Choosing Between overlay/background and ZStack
 
 ```swift
-// GOOD - for correct usage
+// GOOD - correct usage
 // Decoration that should not change layout sizing belongs in overlay/background
 Button("Continue") {
     // action
@@ -220,17 +220,17 @@ Button("Continue") {
         .padding(.trailing, 8)
 }
 
-// BAD - for wrong one
+// BAD - incorrect usage
 // Using ZStack when overlay/background is enough and layout sizing should remain anchored to the button
-ZStack {
+ZStack(alignment: .trailing) {
     Button("Continue") {
         // action
     }
     Image(systemName: "lock.fill")
-        .offset(x: 8)
+        .padding(.trailing, 8)
 }
 
-// GOOD - for correct usage
+// GOOD - correct usage
 // Badge reserves space / extends bounds, so it must be part of layout sizing.
 // Use a container (ZStack/VStack/HStack) to make sizing explicit.
 ZStack(alignment: .topTrailing) {
@@ -238,7 +238,7 @@ ZStack(alignment: .topTrailing) {
         Image(systemName: "tray")
         Text("Inbox")
     }
-    .padding(.trailing, 18) // reserve room so the badge doesn't overlap/clamp neighbors
+    .padding(.trailing, 18) // add trailing space to the content so the ZStack measures wider and the badge doesn't overlap the "Inbox" text or sit too close to neighbors
 
     Text("3")
         .font(.caption2)
@@ -249,7 +249,7 @@ ZStack(alignment: .topTrailing) {
         .padding(.trailing, -6)
 }
 
-// BAD - for wrong one
+// BAD - incorrect usage
 // overlay does not contribute to measured size, so the badge may overlap/clamp with neighbors
 HStack {
     HStack(spacing: 8) {
